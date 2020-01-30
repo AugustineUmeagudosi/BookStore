@@ -40,6 +40,24 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
+
+                            <div class="col-md-6">
+                            <select  class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" name="role" id="role" style="border-radius:0" required>
+                                    <option value="1">{{ __('Admin') }}</option>
+                                    <option value="2">{{ __('Author') }}</option>
+                                    <option value="3">{{ __('User') }} </option>
+                                </select>
+
+                                @error('role')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">

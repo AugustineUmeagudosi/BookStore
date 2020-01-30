@@ -17,4 +17,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//dashboards
+// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
+Route::get('/author', 'AuthorController@index')->name('author')->middleware('author');
+Route::get('/user', 'UserController@index')->name('user')->middleware('user');
+
+//resources
+Route::resources([
+    'admin' => 'AdminController',
+    'author' => 'AuthorController',
+    'user' => 'UserController'
+]);
